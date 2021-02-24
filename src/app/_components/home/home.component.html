@@ -1,0 +1,38 @@
+<div class="example-button-row">
+  <div class="example-flex-container">
+    <div class="example-button-container">
+      <button mat-fab color="primary" (click)="sortByAlpha()">
+        <mat-icon>sort_by_alpha</mat-icon>
+      </button>
+      <button mat-fab color="primary" (click)="sortByEpisode()">
+        <mat-icon>format_list_numbered</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div *ngFor="let movie of movies">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ movie.title }}
+      </mat-card-title>
+      <mat-card-subtitle>
+        <span class="label">Episode Number</span> {{ movie.episode_id }}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="../../../assets/Star_Wars_Logo.svg" alt="Photo of Star Wars">
+    <mat-card-content>
+      <div>
+        <span class="label">Release Date:</span> {{ movie.release_date}}
+      </div>
+      <div>
+        <span class="label">Director:</span> {{ movie.director}}
+      </div>
+      <div>
+        <span class="label">Productor:</span> {{ movie.producer}}
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
