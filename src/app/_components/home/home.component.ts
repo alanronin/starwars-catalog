@@ -8,7 +8,9 @@ import { FilmsService } from '../../_services/films.service';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  movies;
+  sortByAlphaAsc : boolean = false;
+  sortByEpisodeAsc: boolean = false;
+  films;
   private subscription;
 
   constructor(
@@ -21,8 +23,8 @@ export class HomeComponent implements OnInit {
       this.filmsService
       .getFilms()
       .subscribe( data => {
-        this.movies = data['results'];
-        console.log('data', this.movies);
+        this.films = data['results'];
+        localStorage.setItem('films', JSON.stringify(this.films));
       });
     });
   }
@@ -32,35 +34,28 @@ export class HomeComponent implements OnInit {
   }
 
   sortByAlpha() {
-    console.log('sortedByAlpha', this.movies)
-    let sortByAlpha: { title: string; }[] = this.movies.sort( (a, b) => {
-      return (a.title > b.title) ? 1 : -1;
-      /*if(a.title > b.title) {
-        return 1;
-      } else {
-        re
-      }
-      if(a.title < b.title) {
-        return -1;
-      }
-      return 0;*/
-    });
+    this.sortByAlphaAsc = !this.sortByAlphaAsc;
+    if(this.sortByAlphaAsc) {
+      this.films.sort( (a, b) => {
+        return (a.title > b.title) ? 1 : -1;
+      });
+    } else {
+      this.films.sort( (a, b) => {
+        return (a.title < b.title) ? 1 : -1;
+      });
+    }
   }
 
   sortByEpisode() {
-    console.log('sortByEpisode', this.movies)
-    let sortByAlpha: { episode_id: number; }[] = this.movies.sort( (a, b) => {
-      return (a.episode_id > b.episode_id) ? 1 : -1;
-      /*if(a.title > b.title) {
-        return 1;
-      } else {
-        re
-      }
-      if(a.title < b.title) {
-        return -1;
-      }
-      return 0;*/
-    });
+    this.sortByEpisodeAsc = !this.sortByEpisodeAsc;
+    if(this.sortByEpisodeAsc) {
+      this.films.sort( (a, b) => {
+        return (a.episode_id > b.episode_id) ? 1 : -1;
+      });
+    } else {
+      this.films.sort( (a, b) => {
+        return (a.episode_id < b.episode_id) ? 1 : -1;
+      });
+    }
   }
-
 }

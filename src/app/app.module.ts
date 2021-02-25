@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopBarComponent } from './_components/top-bar/top-bar.component';
 import { HomeComponent } from './_components/home/home.component';
+import { MovieDetailsComponent } from './_components/movie-details/movie-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
-    HomeComponent
+    HomeComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,
