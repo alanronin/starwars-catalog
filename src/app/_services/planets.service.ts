@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CharactersService {
+export class PlanetsService {
 
   constructor(private http: HttpClient) { }
 
-  getPeople(api: string) {
+  getPlanet(api: string) {
     return this.http.get(`${api}`);
   }
 }

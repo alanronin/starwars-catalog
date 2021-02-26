@@ -12,4 +12,8 @@ export class FilmsService {
   getFilms() {
     return this.http.get(`${environment.apiUrl}/films/`);
   }
+
+  getFimsByCharacter(api: string) {
+    return this.http.get(`${api}`);
+  }
 }

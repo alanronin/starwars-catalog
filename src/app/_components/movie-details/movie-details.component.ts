@@ -11,6 +11,8 @@ export class MovieDetailsComponent implements OnInit {
   film;
   films;
   subscription;
+  endpoints;
+  characters = new Array();
 
   constructor(
     private route: ActivatedRoute,
@@ -22,16 +24,19 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.film = this.films[+params.get('filmId')];
-      console.log('film', this.film['characters'])
+      this.endpoints =  this.film['characters'];
     });
 
-    this.subscription = this.route.paramMap.subscribe(params => {
-      this.charactersService
-      .getPeople()
-      .subscribe( data => {
-        console.log(data);
+    for(let api of this.endpoints) {
+      this.subscription = this.route.paramMap.subscribe(params => {
+        this.charactersService
+        .getPeople(api)
+        .subscribe( data => {
+          this.characters.push(data);
+          localStorage.setItem('characters', JSON.stringify(this.characters));
+        });
       });
-    });
+    }
   }
 
 }

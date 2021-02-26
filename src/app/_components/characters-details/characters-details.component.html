@@ -1,0 +1,20 @@
+<div *ngIf="character">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{character.name}}</mat-card-title>
+      <mat-card-subtitle>
+        <div><span class="label">Birth Date: </span>{{character.birth_year}}</div>
+        <div><span class="label">Gender: </span>{{character.gender}}</div>
+        <div><span class="label">Hair Color: </span>{{character.hair_color}}</div>
+        <div><span class="label">Eye Color: </span>{{character.eye_color}}</div>
+      </mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div><span class="label">Homeworld: </span>{{homeworld}}</div>
+        <div><span class="label">Films: </span><span *ngFor="let movie of movies"> {{movie}} |</span></div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

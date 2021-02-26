@@ -24,9 +24,8 @@
         {{ film.opening_crawl}}
       </p>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LUKE</button>
-      <button mat-button>LEIA</button>
+    <mat-card-actions *ngIf="characters">
+      <button mat-button *ngFor="let character of characters; index as charId" [routerLink]="['/chars', charId]">{{character.name}}</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TopBarComponent } from './_components/top-bar/top-bar.component';
 import { HomeComponent } from './_components/home/home.component';
 import { MovieDetailsComponent } from './_components/movie-details/movie-details.component';
+import { CharactersDetailsComponent } from './_components/characters-details/characters-details.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MovieDetailsComponent } from './_components/movie-details/movie-details
     AppComponent,
     TopBarComponent,
     HomeComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    CharactersDetailsComponent
   ],
   imports: [
     BrowserModule,
