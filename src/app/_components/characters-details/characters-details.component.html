@@ -13,7 +13,7 @@
 
     <mat-card-content>
         <div><span class="label">Homeworld: </span>{{homeworld}}</div>
-        <div><span class="label">Films: </span><span *ngFor="let movie of movies"> {{movie}} |</span></div>
+        <div><span class="label">Films: </span><button *ngFor="let movie of movies" matTooltip={{movie}}>{{movie}}</button></div>
     </mat-card-content>
   </mat-card>
 </div>
